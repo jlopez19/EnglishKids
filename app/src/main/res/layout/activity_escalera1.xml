@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_escalera1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_escalera"
+    tools:context="com.sena.jennyferlopez.englishkids.activities.nivel1.Escalera1Activity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textSize="22sp"
+        android:textColor="@color/colorLetra"
+        android:id="@+id/tv_nombre"
+        app:layout_constraintLeft_toRightOf="@+id/tv_puntos"
+        android:layout_marginLeft="96dp"
+        android:layout_marginStart="96dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_puntos"
+        android:layout_marginTop="56dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_puntos"
+        android:text="0"
+        android:textColor="@color/colorLetra"
+        android:textSize="@dimen/tamanio_letra"
+        tools:layout_editor_absoluteY="20dp"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_escalera1"
+        app:layout_constraintRight_toRightOf="@+id/activity_escalera1" />
+
+    <ImageView
+        android:layout_width="152dp"
+        android:layout_height="190dp"
+        android:id="@+id/correAvatar"
+        android:background="@drawable/avatar_ninia"
+        tools:layout_editor_absoluteY="306dp"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_escalera1"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp" />
+</android.support.constraint.ConstraintLayout>

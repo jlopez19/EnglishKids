@@ -1,0 +1,55 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/fondo_saludos"
+    android:layout_height="match_parent"
+    tools:context="com.sena.jennyferlopez.englishkids.activities.nivel1.SaludosFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textSize="22sp"
+            android:textColor="@color/colorLetra"
+            android:id="@+id/tv_nombre"
+            android:layout_marginRight="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_alignBaseline="@+id/tv_puntos"
+            android:layout_alignBottom="@+id/tv_puntos"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_puntos"
+            android:text="0"
+            android:textColor="@color/colorLetra"
+            android:textSize="@dimen/tamanio_letra"
+            android:layout_marginRight="76dp"
+            android:layout_marginEnd="76dp"
+            android:layout_marginTop="18dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/tv_nombre"
+            android:layout_toStartOf="@+id/tv_nombre" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="17sp"
+            android:textColor="@color/colorLetra"
+            android:id="@+id/tv_puntosac"
+            android:layout_marginLeft="48dp"
+            android:layout_marginStart="48dp"
+            android:layout_alignTop="@+id/tv_nombre"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+
+</FrameLayout>
