@@ -14,6 +14,7 @@ import com.sena.jennyferlopez.englishkids.activities.dos.CanastaFrutasActivity;
 import com.sena.jennyferlopez.englishkids.activities.dos.ConcentrateFyCActivity;
 import com.sena.jennyferlopez.englishkids.activities.dos.CorresColoresActivity;
 import com.sena.jennyferlopez.englishkids.activities.dos.FruitsyColorsActivity;
+import com.sena.jennyferlopez.englishkids.activities.tres.NumerosyAnimalesActivity;
 import com.sena.jennyferlopez.englishkids.utils.Preference;
 
 public class Escalera1Activity extends AppCompatActivity implements View.OnClickListener {
@@ -123,7 +124,7 @@ public class Escalera1Activity extends AppCompatActivity implements View.OnClick
             correAvatar9.setVisibility(View.VISIBLE);
             correAvatar9.setBackgroundResource(avatarSeleccionado);
         }else if (id==R.id.correAvatar9){
-            ir= new Intent(this, SaludosyDiasActivity.class);
+            ir= new Intent(this, NumerosyAnimalesActivity.class);
             correAvatar9.setVisibility(View.INVISIBLE);
             correAvatar10.setVisibility(View.VISIBLE);
             correAvatar10.setBackgroundResource(avatarSeleccionado);

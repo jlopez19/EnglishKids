@@ -25,12 +25,16 @@
         <activity android:name=".activities.nivel1.CompletaDiasActivity" />
         <activity android:name=".activities.nivel1.SelectDias2Activity" />
         <activity android:name=".activities.nivel1.SelectDias3Activity" />
-        <activity android:name=".activities.dos.FruitsyColorsActivity"/>
+        <activity android:name=".activities.dos.FruitsyColorsActivity" />
         <activity android:name=".activities.dos.CanastaFrutasActivity" />
         <activity android:name=".activities.dos.CorresColoresActivity" />
         <activity android:name=".activities.dos.CorresColores2Activity" />
         <activity android:name=".activities.dos.CorresColores3Activity" />
-        <activity android:name=".activities.dos.ConcentrateFyCActivity"/>
+        <activity android:name=".activities.dos.ConcentrateFyCActivity" />
+        <activity
+            android:name=".activities.tres.NumerosyAnimalesActivity"
+            android:label="@string/title_activity_numerosy_animales"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
