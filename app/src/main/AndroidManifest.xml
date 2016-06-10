@@ -34,7 +34,11 @@
         <activity
             android:name=".activities.tres.NumerosyAnimalesActivity"
             android:label="@string/title_activity_numerosy_animales"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activities.tres.TrenAnimalesActivity" />
+        <activity android:name=".activities.tres.SonidoCorrNumActivity" />
+        <activity android:name=".activities.tres.TrenAnimales2Activity" />
+        <activity android:name=".activities.tres.TrenAnimales3Activity"></activity>
     </application>
 
 </manifest>

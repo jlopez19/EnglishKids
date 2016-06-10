@@ -15,6 +15,9 @@ import com.sena.jennyferlopez.englishkids.activities.dos.ConcentrateFyCActivity;
 import com.sena.jennyferlopez.englishkids.activities.dos.CorresColoresActivity;
 import com.sena.jennyferlopez.englishkids.activities.dos.FruitsyColorsActivity;
 import com.sena.jennyferlopez.englishkids.activities.tres.NumerosyAnimalesActivity;
+import com.sena.jennyferlopez.englishkids.activities.tres.SonidoCorrNumActivity;
+import com.sena.jennyferlopez.englishkids.activities.tres.TrenAnimales2Activity;
+import com.sena.jennyferlopez.englishkids.activities.tres.TrenAnimalesActivity;
 import com.sena.jennyferlopez.englishkids.utils.Preference;
 
 public class Escalera1Activity extends AppCompatActivity implements View.OnClickListener {
@@ -129,17 +132,17 @@ public class Escalera1Activity extends AppCompatActivity implements View.OnClick
             correAvatar10.setVisibility(View.VISIBLE);
             correAvatar10.setBackgroundResource(avatarSeleccionado);
         }else if (id==R.id.correAvatar10){
-            ir= new Intent(this, SaludosyDiasActivity.class);
+            ir= new Intent(this, TrenAnimalesActivity.class);
             correAvatar10.setVisibility(View.INVISIBLE);
             correAvatar11.setVisibility(View.VISIBLE);
             correAvatar11.setBackgroundResource(avatarSeleccionado);
         }else if (id==R.id.correAvatar11){
-            ir= new Intent(this, SaludosyDiasActivity.class);
+            ir= new Intent(this, SonidoCorrNumActivity.class);
             correAvatar11.setVisibility(View.INVISIBLE);
             correAvatar12.setVisibility(View.VISIBLE);
             correAvatar12.setBackgroundResource(avatarSeleccionado);
         }else if (id==R.id.correAvatar12){
-            ir= new Intent(this, SaludosyDiasActivity.class);
+            ir= new Intent(this, TrenAnimales2Activity.class);
             correAvatar12.setVisibility(View.INVISIBLE);
             correAvatar13.setVisibility(View.VISIBLE);
             correAvatar13.setBackgroundResource(avatarSeleccionado);
