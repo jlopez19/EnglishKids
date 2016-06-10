@@ -20,6 +20,17 @@
             android:name=".activities.nivel1.SaludosyDiasActivity"
             android:label="@string/title_activity_saludosy_dias"
             android:theme="@style/AppTheme" />
+        <activity android:name=".activities.nivel1.ColisionarDiasActivity" />
+        <activity android:name=".activities.nivel1.SelectDiasActivity" />
+        <activity android:name=".activities.nivel1.CompletaDiasActivity" />
+        <activity android:name=".activities.nivel1.SelectDias2Activity" />
+        <activity android:name=".activities.nivel1.SelectDias3Activity" />
+        <activity android:name=".activities.dos.FruitsyColorsActivity"/>
+        <activity android:name=".activities.dos.CanastaFrutasActivity" />
+        <activity android:name=".activities.dos.CorresColoresActivity" />
+        <activity android:name=".activities.dos.CorresColores2Activity" />
+        <activity android:name=".activities.dos.CorresColores3Activity" />
+        <activity android:name=".activities.dos.ConcentrateFyCActivity"/>
     </application>
 
 </manifest>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_colisionar_dias"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.03"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.035"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_puntos"
+                android:text="0"
+                android:gravity="center|top"
+                android:textColor="@color/colorLetra"
+                android:textSize="@dimen/tamanio_letra"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.115"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textSize="@dimen/tamanio_letra"
+                android:gravity="center|top"
+                android:textColor="@color/colorLetra"
+                android:id="@+id/tv_puntosac"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="match_parent"
+                android:text="Nombre"
+                android:textSize="@dimen/tamanio_letra"
+                android:textColor="@color/colorLetra"
+                android:id="@+id/tv_nombre"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.12"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="120dp"
+                android:layout_marginRight="120dp"
+                android:background="@drawable/img_correcta"
+                android:id="@+id/imageView8"
+                android:layout_gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.75">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_marginRight="160dp"
+                android:layout_marginLeft="160dp"
+                android:layout_height="160dp"
+                android:background="@drawable/img_canasta"
+                android:id="@+id/img_canasta"
+                android:layout_marginBottom="13dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="135dp"
+                android:background="@drawable/orange_bad"
+                android:id="@+id/orange_b"
+                android:layout_marginLeft="76dp"
+                android:layout_marginStart="76dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="135dp"
+                android:background="@drawable/grapes_bad"
+                android:id="@+id/grapes_b"
+                android:layout_marginTop="74dp"
+                android:layout_below="@+id/cherry_b"
+                android:layout_toRightOf="@+id/orange_b"
+                android:layout_toEndOf="@+id/orange_b" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="135dp"
+                android:background="@drawable/grapes_good"
+                android:id="@+id/grapes_g"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="36dp"
+                android:layout_marginEnd="36dp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="135dp"
+                android:background="@drawable/orange_good"
+                android:id="@+id/orange_g"
+                android:layout_alignTop="@+id/grapes_b"
+                android:layout_alignRight="@+id/grapes_g"
+                android:layout_alignEnd="@+id/grapes_g"
+                android:layout_marginRight="22dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginTop="23dp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="135dp"
+                android:background="@drawable/cherry_good"
+                android:id="@+id/cherry_g"
+                android:layout_below="@+id/cherry_b"
+                android:layout_toLeftOf="@+id/grapes_b"
+                android:layout_toStartOf="@+id/grapes_b"
+                android:layout_marginRight="25dp"
+                android:layout_marginEnd="25dp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="135dp"
+                android:background="@drawable/cherry_bad"
+                android:id="@+id/cherry_b"
+                android:layout_marginTop="54dp"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/grapes_b"
+                android:layout_toEndOf="@+id/grapes_b" />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

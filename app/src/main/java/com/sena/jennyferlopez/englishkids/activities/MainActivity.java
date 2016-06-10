@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView img_mujer, img_hombre, img_aceptar, img_cancelar, img_cambiara;
     EditText txt_nickname;
     String nickname,  genero_avatar;
-    int avatarSeleccionado;
+    int avatarSeleccionado, id_avatar;
     private SharedPreferences.Editor editor;
     private SharedPreferences preferences;
     @Override
@@ -63,9 +63,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 avatarSeleccionado=R.drawable.avatar_ninio;
                 editor.putInt(Preference.AVATAR_SEECCIONADO, avatarSeleccionado);
             }
+            id_avatar=R.id.correAvatar1;
             nickname=txt_nickname.getText().toString();
             editor.putString(Preference.USER_NAME, nickname);
             editor.putInt(Preference.PUNTOS, 0);
+            editor.putInt(Preference.PUNTOSACUMULADOS,0);
             editor.commit();
             Intent ir= new Intent(this, Escalera1Activity.class);
             startActivity(ir);

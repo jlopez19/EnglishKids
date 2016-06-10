@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_colisionar_dias"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context="com.sena.jennyferlopez.englishkids.activities.nivel1.ColisionarDiasActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.03"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.035"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_puntos"
+                android:text="0"
+                android:gravity="center|top"
+                android:textColor="@color/colorLetra"
+                android:textSize="@dimen/tamanio_letra"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.115"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textSize="@dimen/tamanio_letra"
+                android:gravity="center|top"
+                android:textColor="@color/colorLetra"
+                android:id="@+id/tv_puntosac"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="match_parent"
+                android:text="Nombre"
+                android:textSize="@dimen/tamanio_letra"
+                android:textColor="@color/colorLetra"
+                android:id="@+id/tv_nombre"/>
+
+
+
+        </LinearLayout>
+        <ImageView
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/img_concentrese"
+            android:id="@+id/imageView8" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.77">
+            <GridView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.92"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:numColumns="4"
+                android:columnWidth="90dp"
+                android:stretchMode="columnWidth"
+                android:id="@+id/gridImagenes"
+                android:verticalSpacing="15dp">
+            </GridView>
+           <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+               android:layout_weight="0.08"
+            android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

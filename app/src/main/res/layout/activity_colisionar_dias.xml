@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_colisionar_dias"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context="com.sena.jennyferlopez.englishkids.activities.nivel1.ColisionarDiasActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.03"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.035"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_puntos"
+                android:text="0"
+                android:gravity="center|top"
+                android:textColor="@color/colorLetra"
+                android:textSize="@dimen/tamanio_letra"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.115"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textSize="@dimen/tamanio_letra"
+                android:gravity="center|top"
+                android:textColor="@color/colorLetra"
+                android:id="@+id/tv_puntosac"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="match_parent"
+                android:text="Nombre"
+                android:textSize="@dimen/tamanio_letra"
+                android:textColor="@color/colorLetra"
+                android:id="@+id/tv_nombre"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.12"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:background="@drawable/choque_imagenes"
+                android:id="@+id/imageView8"
+                android:layout_gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+        </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="15dp"
+                android:layout_weight="0.77">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:id="@+id/espacio"
+
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:id="@+id/espacio2"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/choc_viernes"
+                    android:id="@+id/col_viernes"
+                    android:layout_below="@+id/espacio"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/choc_thursday"
+                    android:id="@+id/col_thurs"
+                    android:layout_alignBottom="@+id/col_viernes"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                   />
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/choc_saturday"
+                    android:id="@+id/col_saturday"
+                    android:layout_alignTop="@+id/col_martes"
+                    android:layout_alignLeft="@+id/col_thurs"
+                    android:layout_alignStart="@+id/col_thurs"
+                    android:layout_above="@id/espacio2"/>
+
+
+
+
+
+
+
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/choc_jueves"
+                    android:id="@+id/col_jueves"
+                  android:layout_alignParentBottom="true" />
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/choc_friday"
+                    android:id="@+id/col_friday"
+                    android:layout_alignTop="@+id/col_jueves"
+                    android:layout_alignLeft="@+id/col_tues"
+                    android:layout_alignStart="@+id/col_tues" />
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/choc_martes"
+                    android:id="@+id/col_martes"
+                    android:layout_above="@id/espacio2"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+
+                    android:layout_below="@id/col_viernes"/>
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/choc_sabado"
+                    android:id="@+id/col_sabado"
+                    android:layout_below="@id/col_martes"
+                    android:layout_above="@id/col_jueves"
+
+                    />
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/choc_tuesday"
+                    android:id="@+id/col_tues"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_below="@+id/espacio2"
+                    android:layout_above="@id/col_friday"
+                    android:layout_alignLeft="@+id/col_saturday"
+                    android:layout_alignStart="@+id/col_saturday" />
+
+            </RelativeLayout>
+        </LinearLayout>
+</android.support.constraint.ConstraintLayout>

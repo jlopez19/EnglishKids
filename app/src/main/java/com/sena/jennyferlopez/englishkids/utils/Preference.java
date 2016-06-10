@@ -9,5 +9,6 @@ public class Preference {
     public static String PANTALLA="pantalla";
     public static String PUNTOSACUMULADOS="puntosacumulados";
     public static String PUNTOS="puntos";
+    public static String CARGARAVATAR="cargaravatar";
 
 }
