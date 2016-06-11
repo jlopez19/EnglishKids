@@ -85,7 +85,7 @@ public class Escalera1Activity extends AppCompatActivity implements View.OnClick
                     e.printStackTrace();
                 }finally{
                     Intent ir=new Intent(getApplicationContext(), SplashTodosActivity.class);
-                    ir.putExtra("mensaje", "en cada nivel debes obtener minimo 280 puntos para pasar al siguiente. \n  Da click sobre tu avatar para pasar al siguente juego");
+                    ir.putExtra("mensaje", "En cada nivel debes obtener minimo 280 puntos para pasar al siguiente. \n  Da click sobre tu avatar para pasar al siguente juego");
                     startActivity(ir);
                 }
             }
@@ -207,6 +207,22 @@ public class Escalera1Activity extends AppCompatActivity implements View.OnClick
             editor.commit();
             tv_puntos.setText(""+0);
         }else if(correAvatar5.getVisibility()== View.VISIBLE && puntos >=280 && puntos <=400) {
+            tv_puntos.setText("" + 0);
+        }else if (correAvatar9.getVisibility()==View.VISIBLE && puntos<280){
+            correAvatar9.setVisibility(View.INVISIBLE);
+            correAvatar5.setVisibility(View.VISIBLE);
+            editor.putInt(Preference.PUNTOS, 0);
+            editor.commit();
+            tv_puntos.setText(""+0);
+        }else if(correAvatar9.getVisibility()== View.VISIBLE && puntos >=280 && puntos <=400) {
+            tv_puntos.setText("" + 0);
+        }else if (correAvatar13.getVisibility()==View.VISIBLE && puntos<280){
+            correAvatar13.setVisibility(View.INVISIBLE);
+            correAvatar9.setVisibility(View.VISIBLE);
+            editor.putInt(Preference.PUNTOS, 0);
+            editor.commit();
+            tv_puntos.setText(""+0);
+        }else if(correAvatar13.getVisibility()== View.VISIBLE && puntos >=280 && puntos <=400) {
             tv_puntos.setText("" + 0);
         }
         super.onResume();

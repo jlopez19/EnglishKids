@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sena.jennyferlopez.englishkids.R;
+import com.sena.jennyferlopez.englishkids.activities.SplashTodosActivity;
 import com.sena.jennyferlopez.englishkids.adapters.AdaptadorImagenes;
 import com.sena.jennyferlopez.englishkids.utils.Preference;
 
@@ -62,6 +63,20 @@ public class ConcentrateFyCActivity extends AppCompatActivity {
         tv_puntos=(TextView) findViewById(R.id.tv_puntos);
         tv_pAcumulados=(TextView) findViewById(R.id.tv_puntosac);
         tv_nombre=(TextView) findViewById(R.id.tv_nombre);
+        Thread timerThread = new Thread(){
+            public void run(){
+                try{
+                    sleep(1000);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }finally{
+                    Intent ir=new Intent(getApplicationContext(), SplashTodosActivity.class);
+                    ir.putExtra("mensaje", "Concéntrese. Encuentre las parejas correctas.");
+                    startActivity(ir);
+                }
+            }
+        };
+        timerThread.start();
         gridView = (GridView) findViewById(R.id.gridImagenes);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -90,6 +105,7 @@ public class ConcentrateFyCActivity extends AppCompatActivity {
         adaptadorImagenes =new AdaptadorImagenes(imagenesFondo, this);
         gridView.setAdapter(adaptadorImagenes);
 
+
         loadPreference();
     }
 
@@ -101,7 +117,7 @@ public class ConcentrateFyCActivity extends AppCompatActivity {
         puntosAcum =preferences.getInt(Preference.PUNTOSACUMULADOS, 0);
         puntos=preferences.getInt(Preference.PUNTOS,0);
 
-        tv_puntos.setText(""+50);
+        tv_puntos.setText(""+puntos);
         tv_nombre.setText(userName);
         tv_pAcumulados.setText(""+puntosAcum);
     }
@@ -157,18 +173,43 @@ public class ConcentrateFyCActivity extends AppCompatActivity {
 
             if (numeroParejas==0){
                 if (cont_good ==8) {
-                    finish();
+                    puntosAcum =preferences.getInt(Preference.PUNTOSACUMULADOS, 0);
+                    puntos=preferences.getInt(Preference.PUNTOS,0);
+
+                    if (puntos>=280){
+                        finish();
+                    }else {
+                        puntosAcum=puntosAcum-puntos;
+                        puntos=0;
+
+                        editor.putInt(Preference.PUNTOS, puntos);
+                        editor.putInt(Preference.PUNTOSACUMULADOS, puntosAcum);
+                        editor.commit();
+
+                    }
                 }if (cont_good==8 && cont_intentos ==8){
-                    editor.putInt(Preference.PUNTOS, 100);
+                    int suma_puntos=puntos+100;
+                    int suma_puntosA=puntosAcum+100;
+                    editor.putInt(Preference.PUNTOS, suma_puntos);
+                    editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
                     editor.commit();
                 }else if (cont_good==8 && (cont_intentos >8 || cont_intentos <11)){
-                    editor.putInt(Preference.PUNTOS, 100);
+                    int suma_puntos=puntos+70;
+                    int suma_puntosA=puntosAcum+70;
+                    editor.putInt(Preference.PUNTOS, suma_puntos);
+                    editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
                     editor.commit();
                 }else if (cont_good==8 && (cont_intentos >=11 || cont_intentos <=16)){
-                    editor.putInt(Preference.PUNTOS, 100);
+                    int suma_puntos=puntos+50;
+                    int suma_puntosA=puntosAcum+50;
+                    editor.putInt(Preference.PUNTOS, suma_puntos);
+                    editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
                     editor.commit();
                 }else if (cont_good<8 && cont_intentos >16){
-                    editor.putInt(Preference.PUNTOS, 100);
+                    int suma_puntos=puntos+0;
+                    int suma_puntosA=puntosAcum+0;
+                    editor.putInt(Preference.PUNTOS, suma_puntos);
+                    editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
                     editor.commit();
                 }
 

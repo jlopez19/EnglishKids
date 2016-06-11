@@ -94,7 +94,7 @@ public class ConcentrateCuerpoActivity extends AppCompatActivity {
         puntosAcum =preferences.getInt(Preference.PUNTOSACUMULADOS, 0);
         puntos=preferences.getInt(Preference.PUNTOS,0);
 
-        tv_puntos.setText(""+50);
+        tv_puntos.setText(""+puntos);
         tv_nombre.setText(userName);
         tv_pAcumulados.setText(""+puntosAcum);
     }
@@ -150,20 +150,30 @@ public class ConcentrateCuerpoActivity extends AppCompatActivity {
 
             if (numeroParejas==0){
                 if (cont_good ==8) {
-                    Intent ir= new Intent(getApplication(), WinnersActivity.class);
-                    startActivity(ir);
                     finish();
                 }if (cont_good==8 && cont_intentos ==8){
-                    editor.putInt(Preference.PUNTOS, 100);
+                    int suma_puntos=puntos+100;
+                    int suma_puntosA=puntosAcum+100;
+                    editor.putInt(Preference.PUNTOS, suma_puntos);
+                    editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
                     editor.commit();
                 }else if (cont_good==8 && (cont_intentos >8 || cont_intentos <11)){
-                    editor.putInt(Preference.PUNTOS, 100);
+                    int suma_puntos=puntos+70;
+                    int suma_puntosA=puntosAcum+70;
+                    editor.putInt(Preference.PUNTOS, suma_puntos);
+                    editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
                     editor.commit();
                 }else if (cont_good==8 && (cont_intentos >=11 || cont_intentos <=16)){
-                    editor.putInt(Preference.PUNTOS, 100);
+                    int suma_puntos=puntos+50;
+                    int suma_puntosA=puntosAcum+50;
+                    editor.putInt(Preference.PUNTOS, suma_puntos);
+                    editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
                     editor.commit();
                 }else if (cont_good<8 && cont_intentos >16){
-                    editor.putInt(Preference.PUNTOS, 100);
+                    int suma_puntos=puntos+0;
+                    int suma_puntosA=puntosAcum+0;
+                    editor.putInt(Preference.PUNTOS, suma_puntos);
+                    editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
                     editor.commit();
                 }
 

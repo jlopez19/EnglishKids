@@ -92,7 +92,6 @@ public class SelectDias3Activity extends AppCompatActivity implements View.OnCli
 
             }
 
-
         }else {
             cont_fail=cont_fail+1;
             cont_intentos=cont_intentos+1;

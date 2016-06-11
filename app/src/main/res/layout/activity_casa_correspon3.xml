@@ -85,7 +85,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="80dp"
                 android:layout_marginRight="80dp"
-                android:background="@drawable/txt_monday"
+                android:background="@drawable/txt_kitchen"
                 android:id="@+id/txt_completar" />
 
             <RelativeLayout
@@ -97,7 +97,7 @@
                 <TableLayout
                     android:layout_width="300dp"
                     android:layout_height="300dp"
-                    android:background="@drawable/puntas_monday">
+                    android:background="@drawable/cocina">
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -120,6 +120,7 @@
                             android:layout_weight="0.4"
                             android:padding="15dp"
                             android:id="@+id/dos" />
+
                         <ImageView
                             android:layout_width="0dp"
                             android:layout_height="80dp"

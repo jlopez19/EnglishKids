@@ -75,8 +75,8 @@ public class ColoresFragment extends Fragment implements View.OnClickListener {
         tv_nombre.setText(userName);
         tv_pAcumulados.setText(""+puntosAcum);
 
-        editor.putInt(Preference.PUNTOS, 50);
-        editor.putInt(Preference.PUNTOSACUMULADOS, 50);
+        editor.putInt(Preference.PUNTOS, puntos+50);
+        editor.putInt(Preference.PUNTOSACUMULADOS, puntosAcum+50);
         editor.commit();
 
     }
@@ -87,8 +87,6 @@ public class ColoresFragment extends Fragment implements View.OnClickListener {
         if (id==R.id.col_pink){
             MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.pink);
             mp.start();
-            editor.putInt(Preference.PUNTOS, 50);
-            editor.commit();
         }else if (id==R.id.col_blue){
             MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.blue);
             mp.start();

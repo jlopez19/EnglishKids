@@ -1,6 +1,7 @@
 package com.sena.jennyferlopez.englishkids.activities.tres;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sena.jennyferlopez.englishkids.R;
+import com.sena.jennyferlopez.englishkids.activities.SplashTodosActivity;
 import com.sena.jennyferlopez.englishkids.utils.Preference;
 
 import java.util.List;
@@ -70,6 +72,21 @@ public class SonidoCorrNumActivity extends AppCompatActivity implements View.OnC
         img_ocho.setOnClickListener(this);
         img_nueve.setOnClickListener(this);
         img_diez.setOnClickListener(this);
+
+        Thread timerThread = new Thread(){
+            public void run(){
+                try{
+                    sleep(1000);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }finally{
+                    Intent ir=new Intent(getApplicationContext(), SplashTodosActivity.class);
+                    ir.putExtra("mensaje", "Da clic en el sonido y selecciona el número correspondiente al audio con clic.");
+                    startActivity(ir);
+                }
+            }
+        };
+        timerThread.start();
         loadPreference();
     }
 
@@ -82,7 +99,7 @@ public class SonidoCorrNumActivity extends AppCompatActivity implements View.OnC
         puntosAcum =preferences.getInt(Preference.PUNTOSACUMULADOS, 0);
         puntos=preferences.getInt(Preference.PUNTOS,0);
 
-        tv_puntos.setText(""+50);
+        tv_puntos.setText(""+puntos);
         tv_nombre.setText(userName);
         tv_pAcumulados.setText(""+puntosAcum);
 
@@ -203,16 +220,28 @@ public class SonidoCorrNumActivity extends AppCompatActivity implements View.OnC
         if (cont_good ==10) {
             finish();
         }if (cont_good==10 && cont_intentos ==10){
-            editor.putInt(Preference.PUNTOS, 100);
+            int suma_puntos=puntos+100;
+            int suma_puntosA=puntosAcum+100;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
             editor.commit();
         }else if (cont_good==10 && (cont_intentos >10 || cont_intentos <13)){
-            editor.putInt(Preference.PUNTOS, 100);
+            int suma_puntos=puntos+70;
+            int suma_puntosA=puntosAcum+70;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
             editor.commit();
         }else if (cont_good==10 && (cont_intentos >=13 || cont_intentos <=16)){
-            editor.putInt(Preference.PUNTOS, 100);
+            int suma_puntos=puntos+50;
+            int suma_puntosA=puntosAcum+50;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
             editor.commit();
         }else if (cont_good<10 && cont_intentos >20){
-            editor.putInt(Preference.PUNTOS, 100);
+            int suma_puntos=puntos+0;
+            int suma_puntosA=puntosAcum+0;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
             editor.commit();
         }
     }

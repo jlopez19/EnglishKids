@@ -2,6 +2,7 @@ package com.sena.jennyferlopez.englishkids.activities.tres;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sena.jennyferlopez.englishkids.R;
+import com.sena.jennyferlopez.englishkids.activities.SplashTodosActivity;
 import com.sena.jennyferlopez.englishkids.utils.Preference;
 
 /**
@@ -63,6 +65,21 @@ public class NumerosFragment extends Fragment implements View.OnClickListener{
         num_eight.setOnClickListener(this);
         num_nine.setOnClickListener(this);
 
+        Thread timerThread = new Thread(){
+            public void run(){
+                try{
+                    sleep(1000);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }finally{
+                    Intent ir=new Intent(getActivity(), SplashTodosActivity.class);
+                    ir.putExtra("mensaje", " Nivel de reconocimiento 3: Números y Animales. Escucha la pronunciación de los números y los animales. Desliza la pantalla a la izquierda.");
+                    startActivity(ir);
+                }
+            }
+        };
+        timerThread.start();
+
         loadPreference();
         return view;
     }
@@ -75,9 +92,13 @@ public class NumerosFragment extends Fragment implements View.OnClickListener{
         puntosAcum =preferences.getInt(Preference.PUNTOSACUMULADOS, 0);
         puntos=preferences.getInt(Preference.PUNTOS,0);
 
-        tv_puntos.setText(""+50);
+        tv_puntos.setText(""+puntos);
         tv_nombre.setText(userName);
         tv_pAcumulados.setText(""+puntosAcum);
+
+        editor.putInt(Preference.PUNTOS, puntos+50);
+        editor.putInt(Preference.PUNTOSACUMULADOS, puntosAcum+50);
+        editor.commit();
     }
 
     @Override

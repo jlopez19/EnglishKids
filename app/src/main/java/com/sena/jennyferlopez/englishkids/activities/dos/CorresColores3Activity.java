@@ -19,6 +19,7 @@ public class CorresColores3Activity extends AppCompatActivity implements View.On
     TextView tv_puntos, tv_nombre, tv_pAcumulados;
     int puntos, puntosAcum, avatarSeleccionado;
     private SharedPreferences.Editor editor;
+    int cont_intentos=0, cont_good=0, cont_fail=0, i =0, num;
     private SharedPreferences preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +68,10 @@ public class CorresColores3Activity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         int id=v.getId();
         if (id==R.id.cor_pink){
+            cont_good = cont_good + 1;
+            cont_intentos = cont_intentos + 1;
             cambiar_img.setBackgroundResource(R.drawable.rosado_pintado);
+            cargarPuntos();
             Thread timerThread = new Thread(){
                 public void run(){
                     try{
@@ -81,7 +85,37 @@ public class CorresColores3Activity extends AppCompatActivity implements View.On
             };
             timerThread.start();
         }else {
-            Toast.makeText(this, "intentalo de nuevo", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "intentalo de nuevo", Toast.LENGTH_SHORT).show();
+                cont_fail=cont_fail+1;
+                cont_intentos=cont_intentos+1;
+            }
+        }
+        private void cargarPuntos() {
+            if (cont_good==1 && cont_intentos ==1){
+                int suma_puntos=puntos+35;
+                int suma_puntosA=puntosAcum+35;
+                editor.putInt(Preference.PUNTOS, suma_puntos);
+                editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
+                editor.commit();
+            }else if (cont_good==1 && (cont_intentos ==2)){
+                int suma_puntos=puntos+25;
+                int suma_puntosA=puntosAcum+25;
+                editor.putInt(Preference.PUNTOS, suma_puntos);
+                editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
+                editor.commit();
+            }else if (cont_good==1 && (cont_intentos ==3)){
+                int suma_puntos=puntos+10;
+                int suma_puntosA=puntosAcum+10;
+                editor.putInt(Preference.PUNTOS, suma_puntos);
+                editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
+                editor.commit();
+            }else if (cont_good<1 && cont_intentos >=4){
+                int suma_puntos=puntos+0;
+                int suma_puntosA=puntosAcum+0;
+                editor.putInt(Preference.PUNTOS, suma_puntos);
+                editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
+                editor.commit();
+            }
         }
     }
-}
+

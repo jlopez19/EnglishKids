@@ -2,6 +2,7 @@ package com.sena.jennyferlopez.englishkids.activities.dos;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sena.jennyferlopez.englishkids.R;
+import com.sena.jennyferlopez.englishkids.activities.SplashTodosActivity;
 import com.sena.jennyferlopez.englishkids.utils.Preference;
 
 /**
@@ -57,6 +59,20 @@ public class FrutasFragment extends Fragment implements View.OnClickListener {
         fru_grape.setOnClickListener(this);
         fru_cherry.setOnClickListener(this);
         fru_orange.setOnClickListener(this);
+        Thread timerThread = new Thread(){
+            public void run(){
+                try{
+                    sleep(1000);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }finally{
+                    Intent ir=new Intent(getActivity(), SplashTodosActivity.class);
+                    ir.putExtra("mensaje", "Nivel de reconocimiento 2: Frutas y Colores. Escucha la pronunciación de las frutas y colores. Desliza la pantalla a la izquierda.");
+                    startActivity(ir);
+                }
+            }
+        };
+        timerThread.start();
 
         loadPreference();
         return view;
@@ -75,7 +91,7 @@ public class FrutasFragment extends Fragment implements View.OnClickListener {
         tv_pAcumulados.setText(""+puntosAcum);
 
         editor.putInt(Preference.PUNTOS, 50);
-        editor.putInt(Preference.PUNTOSACUMULADOS, 50);
+        editor.putInt(Preference.PUNTOSACUMULADOS, puntosAcum+50);
         editor.commit();
     }
 

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sena.jennyferlopez.englishkids.R;
+import com.sena.jennyferlopez.englishkids.activities.SplashTodosActivity;
 import com.sena.jennyferlopez.englishkids.utils.Preference;
 
 public class ColisionarDiasActivity extends AppCompatActivity implements View.OnClickListener {
@@ -68,6 +69,22 @@ public class ColisionarDiasActivity extends AppCompatActivity implements View.On
         tv_puntos = (TextView) findViewById(R.id.tv_puntos);
         tv_nombre = (TextView) findViewById(R.id.tv_nombre);
         tv_pAcumulados = (TextView) findViewById(R.id.tv_puntosac);
+
+
+        Thread timerThread = new Thread(){
+            public void run(){
+                try{
+                    sleep(1000);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }finally{
+                    Intent ir=new Intent(getApplicationContext(), SplashTodosActivity.class);
+                    ir.putExtra("mensaje", "Sostén la palabra en inglés correspondiente con clic sostenido y chócala con su imagen correspondiente. La puntuación perfecta de cada juego son 100 puntos.");
+                    startActivity(ir);
+                }
+            }
+        };
+        timerThread.start();
         loadPreference();
     }
 

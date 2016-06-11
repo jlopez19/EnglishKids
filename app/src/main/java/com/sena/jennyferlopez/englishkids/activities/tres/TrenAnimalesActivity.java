@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sena.jennyferlopez.englishkids.R;
+import com.sena.jennyferlopez.englishkids.activities.SplashTodosActivity;
 import com.sena.jennyferlopez.englishkids.activities.dos.CorresColores3Activity;
 import com.sena.jennyferlopez.englishkids.utils.Preference;
 
@@ -20,6 +21,8 @@ public class TrenAnimalesActivity extends AppCompatActivity implements View.OnCl
     String  userName, pantalla;
     TextView tv_puntos, tv_nombre, tv_pAcumulados;
     int puntos, puntosAcum, avatarSeleccionado;
+    int cont_intentos=0, cont_good=0, cont_fail=0, i =0, num;
+
     private SharedPreferences.Editor editor;
     private SharedPreferences preferences;
     @Override
@@ -40,6 +43,21 @@ public class TrenAnimalesActivity extends AppCompatActivity implements View.OnCl
         reem_c.setOnClickListener(this);
         reem_w.setOnClickListener(this);
 
+        Thread timerThread = new Thread(){
+            public void run(){
+                try{
+                    sleep(1000);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }finally{
+                    Intent ir=new Intent(getApplicationContext(), SplashTodosActivity.class);
+                    ir.putExtra("mensaje", "Completa la palabra del nombre del animal que conduce el tren seleccionando la letra correcta dando clic sobre el cuadro.\n" +
+                            "");
+                    startActivity(ir);
+                }
+            }
+        };
+        timerThread.start();
         loadPreference();
     }
 
@@ -51,9 +69,13 @@ public class TrenAnimalesActivity extends AppCompatActivity implements View.OnCl
         puntosAcum =preferences.getInt(Preference.PUNTOSACUMULADOS, 0);
         puntos=preferences.getInt(Preference.PUNTOS,0);
 
-        tv_puntos.setText(""+50);
+        tv_puntos.setText(""+puntos);
         tv_nombre.setText(userName);
         tv_pAcumulados.setText(""+puntosAcum);
+
+        editor.putInt(Preference.PUNTOS, puntos+50);
+        editor.putInt(Preference.PUNTOSACUMULADOS, puntosAcum+50);
+        editor.commit();
 
     }
 
@@ -61,6 +83,9 @@ public class TrenAnimalesActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         int id=v.getId();
         if (id==R.id.img_w){
+            cont_good = cont_good + 1;
+            cont_intentos = cont_intentos + 1;
+            cargarPuntos();
             cambiar_img.setBackgroundResource(R.drawable.tren_cowc);
             Thread timerThread = new Thread(){
                 public void run(){
@@ -78,7 +103,37 @@ public class TrenAnimalesActivity extends AppCompatActivity implements View.OnCl
             timerThread.start();
         }else {
             Toast.makeText(this, "intentalo de nuevo", Toast.LENGTH_SHORT).show();
+            cont_fail=cont_fail+1;
+            cont_intentos=cont_intentos+1;
         }
     }
+    private void cargarPuntos() {
+        if (cont_good==1 && cont_intentos ==1){
+            int suma_puntos=puntos+35;
+            int suma_puntosA=puntosAcum+35;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
+            editor.commit();
+        }else if (cont_good==1 && (cont_intentos ==2)){
+            int suma_puntos=puntos+25;
+            int suma_puntosA=puntosAcum+25;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
+            editor.commit();
+        }else if (cont_good==1 && (cont_intentos ==3)){
+            int suma_puntos=puntos+10;
+            int suma_puntosA=puntosAcum+10;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
+            editor.commit();
+        }else if (cont_good<1 && cont_intentos >=4){
+            int suma_puntos=puntos+0;
+            int suma_puntosA=puntosAcum+0;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
+            editor.commit();
+        }
+    }
+    }
 
-}
+

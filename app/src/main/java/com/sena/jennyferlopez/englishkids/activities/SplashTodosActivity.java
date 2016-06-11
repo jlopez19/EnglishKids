@@ -16,7 +16,7 @@ public class SplashTodosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_todos);
-men = (TextView) findViewById(R.id.tv_splash);
+        men = (TextView) findViewById(R.id.tv_splash);
         msj=getIntent().getExtras().getString("mensaje");
         men.setText(msj);
         Thread timerThread = new Thread(){

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sena.jennyferlopez.englishkids.R;
+import com.sena.jennyferlopez.englishkids.activities.SplashTodosActivity;
 import com.sena.jennyferlopez.englishkids.utils.Preference;
 
 public class CompletaDiasActivity extends AppCompatActivity implements View.OnClickListener{
@@ -41,6 +42,21 @@ public class CompletaDiasActivity extends AppCompatActivity implements View.OnCl
         img_tres.setOnClickListener(this);
         img_cinco.setOnClickListener(this);
         img_siete.setOnClickListener(this);
+
+        Thread timerThread = new Thread(){
+            public void run(){
+                try{
+                    sleep(1000);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }finally{
+                    Intent ir=new Intent(getApplicationContext(), SplashTodosActivity.class);
+                    ir.putExtra("mensaje", " Da clic sobre el círculo correspondiente a las letras faltantes de la palabra.");
+                    startActivity(ir);
+                }
+            }
+        };
+        timerThread.start();
         loadPreference();
     }
 

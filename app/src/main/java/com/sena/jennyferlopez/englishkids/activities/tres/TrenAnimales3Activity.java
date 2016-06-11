@@ -18,6 +18,7 @@ public class TrenAnimales3Activity extends AppCompatActivity implements View.OnC
     String  userName, pantalla;
     TextView tv_puntos, tv_nombre, tv_pAcumulados;
     int puntos, puntosAcum, avatarSeleccionado;
+    int cont_intentos=0, cont_good=0, cont_fail=0, i =0, num;
     private SharedPreferences.Editor editor;
     private SharedPreferences preferences;
     @Override
@@ -59,24 +60,68 @@ public class TrenAnimales3Activity extends AppCompatActivity implements View.OnC
     public void onClick(View v) {
         int id=v.getId();
         if (id==R.id.img_o){
+            cont_good = cont_good + 1;
+            cont_intentos = cont_intentos + 1;
+            cargarPuntos();
             cambiar_img.setBackgroundResource(R.drawable.tren_dogc);
-            Thread timerThread = new Thread(){
-                public void run(){
-                    try{
-                        sleep(1200);
-                    }catch(InterruptedException e){
-                        e.printStackTrace();
-                    }finally{
-                        //   Intent ir=new Intent(getApplicationContext(), CorresColores3Activity.class);
-                        // startActivity(ir);
-                        finish();
+            puntosAcum =preferences.getInt(Preference.PUNTOSACUMULADOS, 0);
+            puntos=preferences.getInt(Preference.PUNTOS,0);
+
+            if (puntos>=280){
+                Thread timerThread = new Thread(){
+                    public void run(){
+                        try{
+                            sleep(1200);
+                        }catch(InterruptedException e){
+                            e.printStackTrace();
+                        }finally{
+                            finish();
+                        }
                     }
-                }
-            };
-            timerThread.start();
+                };
+                timerThread.start();
+            }else {
+                puntosAcum=puntosAcum-puntos;
+                puntos=0;
+
+                editor.putInt(Preference.PUNTOS, puntos);
+                editor.putInt(Preference.PUNTOSACUMULADOS, puntosAcum);
+                editor.commit();
+
+            }
         }else {
             Toast.makeText(this, "intentalo de nuevo", Toast.LENGTH_SHORT).show();
+            cont_fail=cont_fail+1;
+            cont_intentos=cont_intentos+1;
         }
     }
+    private void cargarPuntos() {
+        if (cont_good==1 && cont_intentos ==1){
+            int suma_puntos=puntos+30;
+            int suma_puntosA=puntosAcum+30;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
+            editor.commit();
+        }else if (cont_good==1 && (cont_intentos ==2)){
+            int suma_puntos=puntos+15;
+            int suma_puntosA=puntosAcum+15;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
+            editor.commit();
+        }else if (cont_good==1 && (cont_intentos ==3)){
+            int suma_puntos=puntos+10;
+            int suma_puntosA=puntosAcum+10;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
+            editor.commit();
+        }else if (cont_good<1 && cont_intentos >=4){
+            int suma_puntos=puntos+0;
+            int suma_puntosA=puntosAcum+0;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
+            editor.commit();
+        }
+    }
+    }
 
-}
+

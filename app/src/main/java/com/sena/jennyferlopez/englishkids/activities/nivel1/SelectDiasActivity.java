@@ -1,6 +1,7 @@
 package com.sena.jennyferlopez.englishkids.activities.nivel1;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sena.jennyferlopez.englishkids.R;
+import com.sena.jennyferlopez.englishkids.activities.SplashTodosActivity;
 import com.sena.jennyferlopez.englishkids.utils.Preference;
 
 public class SelectDiasActivity extends AppCompatActivity implements View.OnClickListener{
@@ -48,6 +50,21 @@ public class SelectDiasActivity extends AppCompatActivity implements View.OnClic
         sel_gafternoon.setOnClickListener(this);
         sel_gnight.setOnClickListener(this);
         sel_gevening.setOnClickListener(this);
+
+        Thread timerThread = new Thread(){
+            public void run(){
+                try{
+                    sleep(1000);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }finally{
+                    Intent ir=new Intent(getApplicationContext(), SplashTodosActivity.class);
+                    ir.putExtra("mensaje", "Da clic en el sonido y selecciona el saludo correspondiente al audio con clic sobre el cuadro.");
+                    startActivity(ir);
+                }
+            }
+        };
+        timerThread.start();
         loadPreference();
     }
 

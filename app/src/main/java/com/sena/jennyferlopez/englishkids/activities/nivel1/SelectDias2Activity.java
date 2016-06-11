@@ -40,6 +40,8 @@ public class SelectDias2Activity extends AppCompatActivity implements View.OnCli
         img_tres.setOnClickListener(this);
         img_cinco.setOnClickListener(this);
         img_siete.setOnClickListener(this);
+
+
         loadPreference();
     }
 
@@ -51,7 +53,7 @@ public class SelectDias2Activity extends AppCompatActivity implements View.OnCli
         puntosAcum =preferences.getInt(Preference.PUNTOSACUMULADOS, 0);
         puntos=preferences.getInt(Preference.PUNTOS,0);
 
-        tv_puntos.setText(""+50);
+        tv_puntos.setText(""+puntos);
         tv_nombre.setText(userName);
         tv_pAcumulados.setText(""+puntosAcum);
 

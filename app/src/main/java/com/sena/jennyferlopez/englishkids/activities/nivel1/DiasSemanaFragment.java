@@ -75,8 +75,8 @@ public class DiasSemanaFragment extends Fragment implements View.OnClickListener
         tv_pAcumulados.setText(""+puntosAcum);
         int suma_puntos=puntos+50;
         int suma_puntosA=puntosAcum+50;
-        editor.putInt(Preference.PUNTOS,100);
-        editor.putInt(Preference.PUNTOSACUMULADOS, 100);
+        editor.putInt(Preference.PUNTOS,suma_puntos);
+        editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
         editor.commit();
     }
 

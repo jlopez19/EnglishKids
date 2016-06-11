@@ -3,6 +3,7 @@ package com.sena.jennyferlopez.englishkids.activities.nivel1;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sena.jennyferlopez.englishkids.R;
+import com.sena.jennyferlopez.englishkids.activities.SplashTodosActivity;
 import com.sena.jennyferlopez.englishkids.utils.Preference;
 
 /**
@@ -50,6 +52,20 @@ public class SaludosFragment extends Fragment implements OnClickListener{
         img_gAfternnon.setOnClickListener(this);
         img_gNigth.setOnClickListener(this);
         img_gevening.setOnClickListener(this);
+        Thread timerThread = new Thread(){
+            public void run(){
+                try{
+                    sleep(1000);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }finally{
+                    Intent ir=new Intent(getActivity(), SplashTodosActivity.class);
+                    ir.putExtra("mensaje", "Al iniciar el primer paso de cada nivel debes dar clic en cada imagen con sonido para escuchar la pronunciación. Desliza la pantalla a la izquierda para hacer el siguiente paso. Cada pantalla te otorga 50 puntos.");
+                    startActivity(ir);
+                }
+            }
+        };
+        timerThread.start();
 
         loadPreference();
         return view;
@@ -63,7 +79,7 @@ public class SaludosFragment extends Fragment implements OnClickListener{
         puntosAcum =preferences.getInt(Preference.PUNTOSACUMULADOS, 0);
         puntos=preferences.getInt(Preference.PUNTOS,0);
 
-        tv_puntos.setText(""+0);
+        tv_puntos.setText(""+puntos);
         tv_nombre.setText(userName);
         tv_pAcumulados.setText(""+puntosAcum);
 
@@ -79,8 +95,6 @@ public class SaludosFragment extends Fragment implements OnClickListener{
         if (id==R.id.img_gMorning){
             MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.good_morning);
             mp.start();
-            editor.putInt(Preference.PUNTOS, 50);
-            editor.commit();
         }else if (id==R.id.img_gAfternoon){
             MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.good_afternoon);
             mp.start();

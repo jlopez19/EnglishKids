@@ -64,10 +64,13 @@ public class CuerpoFragment extends Fragment implements View.OnClickListener {
         puntosAcum =preferences.getInt(Preference.PUNTOSACUMULADOS, 0);
         puntos=preferences.getInt(Preference.PUNTOS,0);
 
-        tv_puntos.setText(""+50);
+        tv_puntos.setText(""+puntos);
         tv_nombre.setText(userName);
         tv_pAcumulados.setText(""+puntosAcum);
 
+        editor.putInt(Preference.PUNTOS, puntos+50);
+        editor.putInt(Preference.PUNTOSACUMULADOS, puntosAcum+50);
+        editor.commit();
     }
 
     @Override
