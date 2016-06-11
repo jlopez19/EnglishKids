@@ -10,6 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sena.jennyferlopez.englishkids.R;
+import com.sena.jennyferlopez.englishkids.activities.WinnersActivity;
+import com.sena.jennyferlopez.englishkids.activities.cuatro.CasaCorresponActivity;
+import com.sena.jennyferlopez.englishkids.activities.cuatro.ColPartesCuerpoActivity;
+import com.sena.jennyferlopez.englishkids.activities.cuatro.ConcentrateCuerpoActivity;
+import com.sena.jennyferlopez.englishkids.activities.cuatro.PartesCasayCuerpoActivity;
 import com.sena.jennyferlopez.englishkids.activities.dos.CanastaFrutasActivity;
 import com.sena.jennyferlopez.englishkids.activities.dos.ConcentrateFyCActivity;
 import com.sena.jennyferlopez.englishkids.activities.dos.CorresColoresActivity;
@@ -147,22 +152,24 @@ public class Escalera1Activity extends AppCompatActivity implements View.OnClick
             correAvatar13.setVisibility(View.VISIBLE);
             correAvatar13.setBackgroundResource(avatarSeleccionado);
         }else if (id==R.id.correAvatar13){
-            ir= new Intent(this, SaludosyDiasActivity.class);
+            ir= new Intent(this, PartesCasayCuerpoActivity.class);
             correAvatar13.setVisibility(View.INVISIBLE);
             correAvatar14.setVisibility(View.VISIBLE);
             correAvatar14.setBackgroundResource(avatarSeleccionado);
         }else if (id==R.id.correAvatar14){
-            ir= new Intent(this, SaludosyDiasActivity.class);
+            ir= new Intent(this, ColPartesCuerpoActivity.class);
             correAvatar14.setVisibility(View.INVISIBLE);
             correAvatar15.setVisibility(View.VISIBLE);
             correAvatar15.setBackgroundResource(avatarSeleccionado);
         }else if (id==R.id.correAvatar15){
-            ir= new Intent(this, SaludosyDiasActivity.class);
+            ir= new Intent(this, CasaCorresponActivity.class);
             correAvatar15.setVisibility(View.INVISIBLE);
             correAvatar16.setVisibility(View.VISIBLE);
             correAvatar16.setBackgroundResource(avatarSeleccionado);
         }else if (id==R.id.correAvatar16){
-            ir= new Intent(this, SaludosyDiasActivity.class);
+            ir= new Intent(this, ConcentrateCuerpoActivity.class);
+            correAvatar16.setVisibility(View.VISIBLE);
+            correAvatar16.setBackgroundResource(avatarSeleccionado);
         }
         startActivity(ir);
     }

@@ -1,7 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/fondo_saludos"
+    android:background="@drawable/fondo_casa"
     android:layout_height="match_parent"
     tools:context="com.sena.jennyferlopez.englishkids.activities.nivel1.SaludosFragment">
 
@@ -72,11 +72,11 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:id="@+id/img_gMorning"
-                android:layout_weight="0.4"/>
+                android:id="@+id/img_bedRoom"
+                android:layout_weight="0.3"/>
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="0.6"
+                android:layout_weight="0.7"
                 android:layout_height="match_parent" />
         </LinearLayout>
 
@@ -87,13 +87,13 @@
             android:orientation="horizontal">
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="0.6"
+                android:layout_weight="0.65"
                 android:layout_height="match_parent" />
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.4"
-                android:id="@+id/img_gAfternoon"
+                android:layout_weight="0.35"
+                android:id="@+id/img_livRoom"
                 />
         </LinearLayout>
 
@@ -105,11 +105,11 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.4"
-                android:id="@+id/img_gNigth" />
+                android:layout_weight="0.3"
+                android:id="@+id/img_kitchen" />
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="0.6"
+                android:layout_weight="0.7"
                 android:layout_height="match_parent" />
 
         </LinearLayout>
@@ -121,13 +121,13 @@
             android:orientation="horizontal">
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="0.6"
+                android:layout_weight="0.65"
                 android:layout_height="match_parent" />
             <ImageView
                 android:layout_width="0dp"
-                android:layout_weight="0.4"
+                android:layout_weight="0.35"
                 android:layout_height="match_parent"
-                android:id="@+id/img_gEvening"/>
+                android:id="@+id/img_bathRoom"/>
 
         </LinearLayout>
 

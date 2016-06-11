@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -38,7 +38,18 @@
         <activity android:name=".activities.tres.TrenAnimalesActivity" />
         <activity android:name=".activities.tres.SonidoCorrNumActivity" />
         <activity android:name=".activities.tres.TrenAnimales2Activity" />
-        <activity android:name=".activities.tres.TrenAnimales3Activity"></activity>
+        <activity android:name=".activities.tres.TrenAnimales3Activity" />
+        <activity android:name=".activities.WinnersActivity" />
+        <activity
+            android:name=".activities.cuatro.PartesCasayCuerpoActivity"
+            android:label="@string/title_activity_partes_casay_cuerpo"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activities.cuatro.ColPartesCuerpoActivity" />
+        <activity android:name=".activities.cuatro.ConcentrateCuerpoActivity" />
+        <activity android:name=".activities.cuatro.CasaCorresponActivity" />
+        <activity android:name=".activities.cuatro.CasaCorrespon2Activity" />
+        <activity android:name=".activities.cuatro.CasaCorrespon3Activity" />
+        <activity android:name=".activities.cuatro.CasaCorrespon4Activity"></activity>
     </application>
 
 </manifest>
