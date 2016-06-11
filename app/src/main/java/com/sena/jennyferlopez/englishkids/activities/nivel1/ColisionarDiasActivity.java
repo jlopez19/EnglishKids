@@ -81,7 +81,7 @@ public class ColisionarDiasActivity extends AppCompatActivity implements View.On
         puntosAcum =preferences.getInt(Preference.PUNTOSACUMULADOS, 0);
         puntos=preferences.getInt(Preference.PUNTOS,0);
 
-        tv_puntos.setText(""+50);
+        tv_puntos.setText(""+puntos);
         tv_nombre.setText(userName);
         tv_pAcumulados.setText(""+puntosAcum);
 
@@ -264,16 +264,28 @@ public class ColisionarDiasActivity extends AppCompatActivity implements View.On
             if (cont_good ==4) {
                 finish();
             }if (cont_good==4 && cont_intentos ==4){
-                editor.putInt(Preference.PUNTOS, 100);
+                int suma_puntos=puntos+100;
+                int suma_puntosA=puntosAcum+100;
+                editor.putInt(Preference.PUNTOS, suma_puntos);
+                editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
                 editor.commit();
             }else if (cont_good==4 && (cont_intentos >4 || cont_intentos <7)){
-                editor.putInt(Preference.PUNTOS, 100);
+                int suma_puntos=puntos+70;
+                int suma_puntosA=puntosAcum+70;
+                editor.putInt(Preference.PUNTOS, suma_puntos);
+                editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
                 editor.commit();
             }else if (cont_good==4 && (cont_intentos >=7 || cont_intentos <=10)){
-                editor.putInt(Preference.PUNTOS, 100);
+                int suma_puntos=puntos+50;
+                int suma_puntosA=puntosAcum+50;
+                editor.putInt(Preference.PUNTOS, suma_puntos);
+                editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
                 editor.commit();
             }else if (cont_good<4 && cont_intentos >10){
-                editor.putInt(Preference.PUNTOS, 100);
+                int suma_puntos=puntos+0;
+                int suma_puntosA=puntosAcum+0;
+                editor.putInt(Preference.PUNTOS, suma_puntos);
+                editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
                 editor.commit();
             }
         }

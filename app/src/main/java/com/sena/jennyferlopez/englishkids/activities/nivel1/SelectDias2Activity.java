@@ -61,11 +61,14 @@ public class SelectDias2Activity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         int id=v.getId();
         if (id==R.id.uno){
+            cont_good=cont_good+1;
+            cont_intentos=cont_intentos+1;
             txt_completar.setBackgroundResource(R.drawable.txt_mondayc);
+            cargarPuntos();
             Thread timerThread = new Thread(){
                 public void run(){
                     try{
-                        sleep(1200);
+                        sleep(5000);
                     }catch(InterruptedException e){
                         e.printStackTrace();
                     }finally{
@@ -77,25 +80,36 @@ public class SelectDias2Activity extends AppCompatActivity implements View.OnCli
             };
             timerThread.start();
         }else {
-            Toast.makeText(this, "Intentelo de nuevo!", Toast.LENGTH_SHORT).show();
+            cont_fail=cont_fail+1;
+            cont_intentos=cont_intentos+1;
         }
 
-
     }
+
     private void cargarPuntos() {
-        if (cont_good ==4) {
-            finish();
-        }if (cont_good==4 && cont_intentos ==4){
-            editor.putInt(Preference.PUNTOS, 100);
+        if (cont_good==1 && cont_intentos ==1){
+            int suma_puntos=puntos+35;
+            int suma_puntosA=puntosAcum+35;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
             editor.commit();
-        }else if (cont_good==4 && (cont_intentos >4 || cont_intentos <7)){
-            editor.putInt(Preference.PUNTOS, 100);
+        }else if (cont_good==1 && (cont_intentos ==2)){
+            int suma_puntos=puntos+25;
+            int suma_puntosA=puntosAcum+25;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
             editor.commit();
-        }else if (cont_good==4 && (cont_intentos >=7 || cont_intentos <=10)){
-            editor.putInt(Preference.PUNTOS, 100);
+        }else if (cont_good==1 && (cont_intentos ==3)){
+            int suma_puntos=puntos+10;
+            int suma_puntosA=puntosAcum+10;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
             editor.commit();
-        }else if (cont_good<4 && cont_intentos >10){
-            editor.putInt(Preference.PUNTOS, 100);
+        }else if (cont_good<1 && cont_intentos >=4){
+            int suma_puntos=puntos+0;
+            int suma_puntosA=puntosAcum+0;
+            editor.putInt(Preference.PUNTOS, suma_puntos);
+            editor.putInt(Preference.PUNTOSACUMULADOS, suma_puntosA);
             editor.commit();
         }
     }

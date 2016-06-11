@@ -31,7 +31,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.1"
             android:layout_height="match_parent"
-            android:id="@+id/tv_puntos"
+            android:id="@+id/tv_puntosAc"
             android:text="0"
             android:gravity="center|top"
             android:textColor="@color/colorLetra"
@@ -48,7 +48,7 @@
             android:textSize="@dimen/tamanio_letra"
             android:gravity="center|top"
             android:textColor="@color/colorLetra"
-            android:id="@+id/tv_puntosac"
+            android:id="@+id/tv_puntos"
             />
         <TextView
             android:layout_width="0dp"

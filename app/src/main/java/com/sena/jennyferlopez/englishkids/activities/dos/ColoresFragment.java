@@ -39,7 +39,7 @@ public class ColoresFragment extends Fragment implements View.OnClickListener {
         View view=  inflater.inflate(R.layout.fragment_colores, container, false);
 
         tv_puntos=(TextView) view.findViewById(R.id.tv_puntos);
-        tv_pAcumulados=(TextView) view.findViewById(R.id.tv_puntosac);
+        tv_pAcumulados=(TextView) view.findViewById(R.id.tv_puntosAc);
         tv_nombre=(TextView) view.findViewById(R.id.tv_nombre);
         col_pink=(ImageView) view.findViewById(R.id.col_pink);
         col_blue=(ImageView) view.findViewById(R.id.col_blue);
@@ -71,9 +71,13 @@ public class ColoresFragment extends Fragment implements View.OnClickListener {
         puntosAcum =preferences.getInt(Preference.PUNTOSACUMULADOS, 0);
         puntos=preferences.getInt(Preference.PUNTOS,0);
 
-        tv_puntos.setText(""+50);
+        tv_puntos.setText(""+puntos);
         tv_nombre.setText(userName);
         tv_pAcumulados.setText(""+puntosAcum);
+
+        editor.putInt(Preference.PUNTOS, 50);
+        editor.putInt(Preference.PUNTOSACUMULADOS, 50);
+        editor.commit();
 
     }
 

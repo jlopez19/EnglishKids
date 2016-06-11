@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sena.jennyferlopez.englishkids.R;
+import com.sena.jennyferlopez.englishkids.activities.SplashTodosActivity;
 import com.sena.jennyferlopez.englishkids.activities.WinnersActivity;
 import com.sena.jennyferlopez.englishkids.activities.cuatro.CasaCorresponActivity;
 import com.sena.jennyferlopez.englishkids.activities.cuatro.ColPartesCuerpoActivity;
@@ -27,17 +28,20 @@ import com.sena.jennyferlopez.englishkids.utils.Preference;
 
 public class Escalera1Activity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView tv_puntos, tv_nombre;
+    TextView tv_puntos, tv_nombre, tv_Acum;
     ImageView correAvatar,correAvatar2,correAvatar3,correAvatar4,correAvatar5,correAvatar6,correAvatar7,correAvatar8,correAvatar9,correAvatar10,correAvatar11,correAvatar12,correAvatar13,correAvatar14,correAvatar15,correAvatar16;
     SharedPreferences preferences;
     String  userName;
     int puntos, puntosAcum, idvatar,avatarSeleccionado;
+    private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escalera1);
         tv_puntos=(TextView)findViewById(R.id.tv_puntos);
         tv_nombre=(TextView)findViewById(R.id.tv_nombre);
+        tv_Acum=(TextView)findViewById(R.id.tv_acumulado);
 
         correAvatar=(ImageView)findViewById(R.id.correAvatar1);
         correAvatar2=(ImageView)findViewById(R.id.correAvatar2);
@@ -73,6 +77,20 @@ public class Escalera1Activity extends AppCompatActivity implements View.OnClick
         correAvatar15.setOnClickListener(this);
         correAvatar16.setOnClickListener(this);
 
+        Thread timerThread = new Thread(){
+            public void run(){
+                try{
+                    sleep(1000);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }finally{
+                    Intent ir=new Intent(getApplicationContext(), SplashTodosActivity.class);
+                    ir.putExtra("mensaje", "en cada nivel debes obtener minimo 280 puntos para pasar al siguiente. \n  Da click sobre tu avatar para pasar al siguente juego");
+                    startActivity(ir);
+                }
+            }
+        };
+        timerThread.start();
         loadDatos();
 
     }
@@ -82,8 +100,11 @@ public class Escalera1Activity extends AppCompatActivity implements View.OnClick
         avatarSeleccionado = preferences.getInt(Preference.AVATAR_SEECCIONADO, 0);
         userName =preferences.getString(Preference.USER_NAME, "");
         puntos=preferences.getInt(Preference.PUNTOS,0);
+        puntosAcum=preferences.getInt(Preference.PUNTOSACUMULADOS,0);
         tv_puntos.setText(""+puntos);
         tv_nombre.setText(userName);
+        tv_Acum.setText(""+puntosAcum);
+
         correAvatar.setBackgroundResource(avatarSeleccionado);
     }
 
@@ -172,5 +193,22 @@ public class Escalera1Activity extends AppCompatActivity implements View.OnClick
             correAvatar16.setBackgroundResource(avatarSeleccionado);
         }
         startActivity(ir);
+    }
+
+    @Override
+    protected void onResume() {
+        preferences = getSharedPreferences(Preference.PREFERENCE_NAME, Activity.MODE_PRIVATE);
+        editor = preferences.edit();
+        loadDatos();
+        if (correAvatar5.getVisibility()==View.VISIBLE && puntos<280){
+            correAvatar5.setVisibility(View.INVISIBLE);
+            correAvatar.setVisibility(View.VISIBLE);
+            editor.putInt(Preference.PUNTOS, 0);
+            editor.commit();
+            tv_puntos.setText(""+0);
+        }else if(correAvatar5.getVisibility()== View.VISIBLE && puntos >=280 && puntos <=400) {
+            tv_puntos.setText("" + 0);
+        }
+        super.onResume();
     }
 }

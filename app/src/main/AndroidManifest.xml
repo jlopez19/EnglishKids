@@ -49,7 +49,8 @@
         <activity android:name=".activities.cuatro.CasaCorresponActivity" />
         <activity android:name=".activities.cuatro.CasaCorrespon2Activity" />
         <activity android:name=".activities.cuatro.CasaCorrespon3Activity" />
-        <activity android:name=".activities.cuatro.CasaCorrespon4Activity"></activity>
+        <activity android:name=".activities.cuatro.CasaCorrespon4Activity" />
+        <activity android:name=".activities.SplashTodosActivity"></activity>
     </application>
 
 </manifest>

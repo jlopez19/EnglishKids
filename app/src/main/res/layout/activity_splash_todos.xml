@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_splash_todos"
+    android:layout_width="match_parent"
+    android:background="@drawable/fondo_splash"
+    android:layout_height="match_parent"
+    tools:context="com.sena.jennyferlopez.englishkids.activities.SplashTodosActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="250dp"
+            android:textSize="22sp"
+            android:text="nada"
+            android:id="@+id/tv_splash"
+            tools:layout_editor_absoluteX="165dp"
+            tools:layout_editor_absoluteY="237dp"
+            android:layout_marginRight="56dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginBottom="82dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

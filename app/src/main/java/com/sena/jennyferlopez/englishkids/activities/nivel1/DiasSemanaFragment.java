@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sena.jennyferlopez.englishkids.R;
+import com.sena.jennyferlopez.englishkids.models.Puntos;
 import com.sena.jennyferlopez.englishkids.utils.Preference;
 
 /**
@@ -68,11 +69,14 @@ public class DiasSemanaFragment extends Fragment implements View.OnClickListener
         userName =preferences.getString(Preference.USER_NAME, "");
         puntosAcum =preferences.getInt(Preference.PUNTOSACUMULADOS, 0);
         puntos=preferences.getInt(Preference.PUNTOS,0);
-        int suma_puntos=puntos+50;
-        tv_puntos.setText(""+suma_puntos);
+
+        tv_puntos.setText(""+ puntos);
         tv_nombre.setText(userName);
         tv_pAcumulados.setText(""+puntosAcum);
-        editor.putInt(Preference.PUNTOS, 50);
+        int suma_puntos=puntos+50;
+        int suma_puntosA=puntosAcum+50;
+        editor.putInt(Preference.PUNTOS,100);
+        editor.putInt(Preference.PUNTOSACUMULADOS, 100);
         editor.commit();
     }
 
